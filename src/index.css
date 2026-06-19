@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.root-bg {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-ring {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 230, 80, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  z-index: 10;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  text-align: center;
+  transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.title-on {
+  color: #1a1a00;
+  text-shadow: 0 0 30px rgba(255, 220, 0, 0.8), 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.title-off {
+  color: rgba(255, 255, 255, 0.5);
+  text-shadow: none;
+}
+
+.switch-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.switch-plate {
+  width: 100px;
+  height: 160px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.15);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.plate-on {
+  background: #2a2200;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 40px rgba(255, 200, 0, 0.3), inset 0 2px 4px rgba(255,255,255,0.1);
+}
+
+.plate-off {
+  background: #2d2060;
+}
+
+.switch-btn {
+  width: 64px;
+  height: 120px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+  padding: 0;
+}
+
+.switch-btn:active {
+  transform: scale(0.95);
+}
+
+.btn-click {
+  animation: clickPop 0.2s ease-out;
+}
+
+@keyframes clickPop {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+.switch-lever {
+  width: 56px;
+  height: 104px;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.lever-up {
+  background: linear-gradient(180deg, #ffe066 0%, #ffcc00 50%, #e8b000 100%);
+  transform: translateY(-8px);
+  box-shadow: 0 6px 16px rgba(255, 200, 0, 0.6), inset 0 2px 4px rgba(255,255,255,0.4);
+}
+
+.lever-down {
+  background: linear-gradient(180deg, #5a4aaa 0%, #3d2e8a 50%, #2a1f6e 100%);
+  transform: translateY(8px);
+  box-shadow: 0 -4px 10px rgba(0,0,0,0.3), inset 0 -2px 4px rgba(255,255,255,0.1);
+}
+
+.bulb-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bulb {
+  width: 90px;
+  height: 110px;
+  transition: filter 0.5s ease, transform 0.3s ease;
+}
+
+.bulb-on {
+  filter: drop-shadow(0 0 20px rgba(255, 220, 50, 0.9)) drop-shadow(0 0 40px rgba(255, 200, 0, 0.6));
+  transform: scale(1.08);
+}
+
+.bulb-off {
+  filter: none;
+  transform: scale(1);
+  opacity: 0.5;
+}
+
+.label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: color 0.4s ease;
+}
+
+.label-on {
+  color: rgba(30, 20, 0, 0.7);
+}
+
+.label-off {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.counter {
+  font-size: 0.95rem;
+  padding: 8px 20px;
+  border-radius: 100px;
+  transition: all 0.4s ease;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.counter-on {
+  background: rgba(0, 0, 0, 0.15);
+  color: rgba(30, 20, 0, 0.75);
+}
+
+.counter-off {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.counter strong {
+  font-weight: 800;
+}
+
+.buy-link {
+  position: fixed;
+  bottom: 16px;
+  right: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: color 0.2s ease;
+  z-index: 100;
+}
+
+.buy-link:hover {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: underline;
+}
