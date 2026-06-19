@@ -30,7 +30,7 @@ export default function App() {
       {isOn && <div className="glow-ring" />}
 
       <a
-        href="https://nad.fun/tokens/0x350035555E10d9AfAF1566AaebfCeD5BA6C27777"
+        href="https://nad.fun/tokens/0x7B2728c04aD436153285702e969e6EfAc3a97777"
         target="_blank"
         rel="noopener noreferrer"
         className="buy-link"
