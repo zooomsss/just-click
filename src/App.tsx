@@ -30,7 +30,7 @@ export default function App() {
       {isOn && <div className="glow-ring" />}
 
       <a
-        href="https://nad.fun/tokens/0x7B2728c04aD436153285702e969e6EfAc3a97777"
+        href="https://www.thekleos.xyz/"
         target="_blank"
         rel="noopener noreferrer"
         className="buy-link"
